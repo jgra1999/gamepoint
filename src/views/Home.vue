@@ -1,53 +1,12 @@
 <template>
+	<slider />
 	<main class="container px-2 my-10 mx-auto w-container flex flex-col items-center">
 		<h2 class="text-3xl lg:text-5xl font-bold">¿Qué estas Buscando?</h2>
 
 		<div class="flex flex-col gap-y-10 lg:gap-x-5 items-center lg:flex-row lg:justify-around my-10 w-full">
-			<router-link to="/juegos" class="group">
-				<div class="w-full h-72 lg:w-80 lg:h-54 xl:w-96 xl:lg-64 overflow-hidden">
-					<img
-						src="/img/explore/games.jpg"
-						alt="juegos imagen"
-						class="w-full h-full transition-all duration-300 transform group-hover:scale-110"
-					/>
-				</div>
-				<div class="flex items-center gap-x-2 mt-2">
-					<span class="font-bold text-2xl pb-1 group-hover:text-secondary transition-colors duration-300"
-						>Juegos</span
-					>
-					<chevron-right-icon class="w-6 h-6 mt-1.5 group-hover:text-secondary transition-colors duration-300" />
-				</div>
-			</router-link>
-			<div class="group">
-				<div class="w-full h-72 lg:w-80 lg:h-54 xl:w-96 xl:lg-64 overflow-hidden">
-					<img
-						src="/img/explore/consoles.jpg"
-						alt="juegos imagen"
-						class="w-full h-full transition-all duration-300 transform group-hover:scale-110"
-					/>
-				</div>
-				<div class="flex items-center gap-x-1 mt-2">
-					<span class="font-bold text-2xl group-hover:text-secondary transition-colors duration-300"
-						>Consolas</span
-					>
-					<chevron-right-icon class="w-6 h-6 mt-1.5 group-hover:text-secondary transition-colors duration-300" />
-				</div>
-			</div>
-			<div class="group">
-				<div class="w-full h-72 lg:w-80 lg:h-54 xl:w-96 xl:lg-64 overflow-hidden">
-					<img
-						src="/img/explore/fix.jpg"
-						alt="juegos imagen"
-						class="w-full h-full transition-all duration-300 transform group-hover:scale-110"
-					/>
-				</div>
-				<div class="flex items-center gap-x-2 mt-2">
-					<span class="font-bold text-2xl group-hover:text-secondary transition-colors duration-300"
-						>Servicio Técnico</span
-					>
-					<chevron-right-icon class="w-6 h-6 mt-1.5 group-hover:text-secondary transition-colors duration-300" />
-				</div>
-			</div>
+			<element url="/juegos" img="/img/explore/games.jpg" text="Juegos" />
+			<element url="/consolas" img="/img/explore/consoles.jpg" text="Consola" />
+			<element url="#" img="/img/explore/fix.jpg" text="Servicio Técnico" />
 		</div>
 	</main>
 
@@ -62,7 +21,7 @@
 			/>
 
 			<div class="flex justify-center gap-x-2 w-full text-white absolute bottom-5 lg:bottom-10">
-				<router-link to="#" class="flex items-center group">
+				<router-link to="/playstation-4" class="flex items-center group">
 					<span
 						class="font-bold text-xl md:text-2xl opacity-80 group-hover:opacity-100 transition-opacity duration-300"
 						>Ver más</span
@@ -102,7 +61,7 @@
 				<div>
 					<p class="font-bold text-4xl"><span class="text-secondary">Twitch</span> llego a Nintendo Switch</p>
 				</div>
-				<router-link to="#" class="flex items-center group text-white">
+				<router-link to="/twitch-llego-a-nintendo-switch" class="flex items-center group text-white">
 					<span
 						class="font-bold text-xl md:text-2xl opacity-80 group-hover:opacity-100 transition-opacity duration-300"
 						>Ver noticia</span
@@ -131,7 +90,7 @@
 				<p class="font-medium my-5 text-base md:text-lg">
 					Se filtran juegos que estarán disponibles en diciembre y seran gratuitos.
 				</p>
-				<router-link to="#" class="flex items-center group">
+				<router-link to="/juegos-gratis-ps-plus-diciembre" class="flex items-center group">
 					<span
 						class="font-bold text-xl md:text-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-300"
 						>Ver noticia</span
@@ -176,7 +135,7 @@
 						Una experiencia de juego más profunda y altamente envolvente en las palmas de tus manos.
 					</p>
 				</div>
-				<router-link to="#" class="flex items-center group">
+				<router-link to="/playstation-5" class="flex items-center group">
 					<span
 						class="font-bold text-xl md:text-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-300"
 						>Ver más</span
@@ -212,13 +171,15 @@
 
 <script>
 import Btn from '@/components/layout/Btn.vue';
+import Element from '@/components/explore/Element.vue';
+import Slider from '@/components/layout/Slider.vue';
 
 import { ChevronRightIcon } from '@heroicons/vue/solid';
 
 import { onMounted } from 'vue';
 
 export default {
-	components: { Btn, ChevronRightIcon },
+	components: { Btn, ChevronRightIcon, Element, Slider },
 
 	setup() {
 		onMounted(() => {

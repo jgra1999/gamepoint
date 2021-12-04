@@ -1,7 +1,7 @@
 <template>
 	<the-navbar />
 
-	<slider />
+	<!-- <slider /> -->
 
 	<btn-up />
 
@@ -13,10 +13,10 @@
 import TheNavbar from '@/components/layout/TheNavbar.vue';
 import TheFooter from '@/components/layout/TheFooter.vue';
 import BtnUp from '@/components/layout/BtnUp.vue';
-import Slider from '@/components/layout/Slider.vue';
+// import Slider from '@/components/layout/Slider.vue';
 
 export default {
-	components: { TheNavbar, TheFooter, BtnUp, Slider },
+	components: { TheNavbar, TheFooter, BtnUp },
 };
 </script>
 

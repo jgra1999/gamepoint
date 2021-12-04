@@ -27,7 +27,7 @@
 			<div class="md:mr-10">
 				<p class="text-lg md:text-3xl font-bold mb-5 text-white">Redes Sociales</p>
 				<div class="text-left sm:text-center">
-					<a href="https://www.instagram.com/_topgamesstore/" target="_blank">
+					<a href="https://www.instagram.com/gamepointvzla/" target="_blank">
 						<svg
 							class="inline-block fill-current text-white hover:text-secondary w-5 h-5"
 							xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@
 						</svg>
 					</a>
 
-					<a href="https://wa.me/+584145831111" target="_blank">
+					<a href="https://wa.me/+584244036505" target="_blank">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 24 24"

@@ -4,7 +4,7 @@
 		<div class="flex items-center gap-x-5 lg:hidden">
 			<!-- btn menu resposive -->
 			<button @click="showMenuResponsive">
-				<menu-icon class="w-6 h-6 text-white" />
+				<menu-icon class="w-6 h-6 text-white active:text-secondary" />
 			</button>
 
 			<button @click="showInput">
@@ -16,22 +16,22 @@
 		<!-- menu pc -->
 		<div class="flex items-center">
 			<!-- logo -->
-			<div class="w-44">
+			<router-link to="/" class="w-44">
 				<img src="/img/logo.png" alt="gamepoint logo" class="w-full" />
-			</div>
+			</router-link>
 
 			<!-- categorias -->
 			<ul class="hidden lg:flex items-center gap-x-5 ml-3 text-white">
 				<li class="font-medium text-lg hover:text-secondary transition-colors duration-300">
-					<router-link to="#"> PlayStation 5 </router-link>
+					<router-link to="/playstation-5"> PlayStation 5 </router-link>
 				</li>
 
 				<li class="font-medium text-lg hover:text-secondary transition-colors duration-300">
-					<router-link to="#"> PlayStation 4 </router-link>
+					<router-link to="/playstation-4"> PlayStation 4 </router-link>
 				</li>
 
 				<li class="font-medium text-lg hover:text-secondary transition-colors duration-300">
-					<router-link to="#"> Nintedo Switch </router-link>
+					<router-link to="/nintendo-switch"> Nintedo Switch </router-link>
 				</li>
 			</ul>
 		</div>
@@ -53,9 +53,10 @@
 				<search-icon class="w-5 h-5 text-white hover:text-secondary searchPc" />
 				<x-icon class="w-5 h-5 text-white hover:text-secondary hidden backPc" />
 			</button>
-			<router-link to="#">
+			<button @click="showCart()">
 				<shopping-bag-icon class="w-5 h-5 text-white hover:text-secondary" />
-			</router-link>
+			</button>
+
 			<div>
 				<user-circle-icon class="w-5 h-5 text-white hover:text-secondary" />
 			</div>
@@ -78,26 +79,63 @@
 		"
 		id="menuResponsive"
 	>
-		<ul class="divide-y-2 divide-border">
+		<ul class="divide-y-2 divide-border" @click="hiddeMenuResponsive">
 			<li class="py-2 flex items-center gap-x-1 active:text-secondary">
-				<router-link to="#">PlayStation 5</router-link>
+				<router-link to="/playstation-5">PlayStation 5</router-link>
 				<chevron-right-icon class="w-5 h-5" />
 			</li>
 			<li class="py-2 flex items-center gap-x-1 active:text-secondary">
-				<router-link to="#">PlayStation 4</router-link>
+				<router-link to="/playstation-4">PlayStation 4</router-link>
 				<chevron-right-icon class="w-5 h-5" />
 			</li>
 			<li class="py-2 flex items-center gap-x-1 active:text-secondary">
-				<router-link to="#">Nintedo Switch</router-link>
+				<router-link to="/nintendo-switch">Nintedo Switch</router-link>
 				<chevron-right-icon class="w-5 h-5" />
 			</li>
 		</ul>
+	</div>
+
+	<!-- carrito -->
+	<div class="bg-white opacity-0 transition-opacity duration-300 absolute top-16 z-10 right-16 p-5" id="cart">
+		<div class="flex flex-col gap-y-4 font-medium">
+			<div>
+				<div class="flex justify-between gap-x-4">
+					<p>Marvel's Guardians of the Galaxy</p>
+					<x-icon class="w-3 h-3 text-gray-500 hover:text-black active:text-black cursor-pointer" />
+				</div>
+				<div class="flex justify-between items center text-xs text-gray-500 mt-1">
+					<span>Playstation 5</span>
+					<span>2 x 50$</span>
+				</div>
+			</div>
+			<div>
+				<div class="flex justify-between gap-x-4">
+					<p>GTA Trilogy</p>
+					<x-icon class="w-3 h-3 text-gray-500 hover:text-black active:text-black cursor-pointer" />
+				</div>
+				<div class="flex justify-between items center text-xs text-gray-500 mt-1">
+					<span>Nintedo Switch</span>
+					<span>1 x 50$</span>
+				</div>
+			</div>
+
+			<div class="pt-3 border-t-2 w-full text-center">
+				<div class="flex justify-between items center text-xs text-gray-600 mb-5">
+					<span>Productos(3)</span>
+					<span>Total: 150 $</span>
+				</div>
+				<router-link to="/finalizar-compra" @click="showCart()">
+					<btn text="finalizar" />
+				</router-link>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script>
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/vue/solid';
 import { SearchIcon, ShoppingBagIcon, UserCircleIcon, MenuIcon, XIcon } from '@heroicons/vue/outline';
+import Btn from './Btn.vue';
 
 export default {
 	components: {
@@ -108,6 +146,7 @@ export default {
 		UserCircleIcon,
 		MenuIcon,
 		XIcon,
+		Btn,
 	},
 
 	methods: {
@@ -129,6 +168,18 @@ export default {
 			const menuResponsive = document.getElementById('menuResponsive');
 
 			menuResponsive.classList.toggle('opacity-0');
+		},
+
+		hiddeMenuResponsive() {
+			const menuResponsive = document.getElementById('menuResponsive');
+
+			menuResponsive.classList.add('opacity-0');
+		},
+
+		showCart() {
+			const cart = document.getElementById('cart');
+
+			cart.classList.toggle('opacity-0');
 		},
 	},
 };
